@@ -1,7 +1,5 @@
 package com.ticketing.ticketapi.model;
 
-import java.time.LocalDate;
-
 public class Ticket {
 
     private String requestorName;
@@ -10,14 +8,14 @@ public class Ticket {
     private String priority;
     private String assigneeName;
     private String assigneeEmail;
-    private LocalDate creationDate;
+    private String creationDate;
     private String status;
 
     public Ticket() {}
 
     public Ticket(String requestorName, String ticketDescription, String companyName,
                   String priority, String assigneeName, String assigneeEmail,
-                  LocalDate creationDate, String status) {
+                  String creationDate, String status) {
         this.requestorName = requestorName;
         this.ticketDescription = ticketDescription;
         this.companyName = companyName;
@@ -46,8 +44,8 @@ public class Ticket {
     public String getAssigneeEmail() { return assigneeEmail; }
     public void setAssigneeEmail(String assigneeEmail) { this.assigneeEmail = assigneeEmail; }
 
-    public LocalDate getCreationDate() { return creationDate; }
-    public void setCreationDate(LocalDate creationDate) { this.creationDate = creationDate; }
+    public String getCreationDate() { return creationDate; }
+    public void setCreationDate(String creationDate) { this.creationDate = creationDate; }
 
     public String getStatus() { return status; }
     public void setStatus(String status) { this.status = status; }

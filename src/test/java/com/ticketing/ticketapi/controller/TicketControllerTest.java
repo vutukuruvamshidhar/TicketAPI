@@ -65,7 +65,7 @@ class TicketControllerTest {
                 .andReturn();
 
         Ticket response = objectMapper.readValue(result.getResponse().getContentAsString(), Ticket.class);
-        assertThat(response.getCreationDate()).isEqualTo(LocalDate.now());
+        assertThat(response.getCreationDate()).isEqualTo(LocalDate.now().toString());
     }
 
     @Test
@@ -85,7 +85,7 @@ class TicketControllerTest {
     @Test
     void createTicket_ignoresIncomingCreationDateAndStatus() throws Exception {
         Ticket incoming = buildIncomingTicket();
-        incoming.setCreationDate(LocalDate.of(2000, 1, 1));
+        incoming.setCreationDate("2000-01-01");
         incoming.setStatus("pending");
 
         MvcResult result = mockMvc.perform(post("/ticket")
@@ -95,7 +95,7 @@ class TicketControllerTest {
                 .andReturn();
 
         Ticket response = objectMapper.readValue(result.getResponse().getContentAsString(), Ticket.class);
-        assertThat(response.getCreationDate()).isEqualTo(LocalDate.now());
+        assertThat(response.getCreationDate()).isEqualTo(LocalDate.now().toString());
         assertThat(response.getStatus()).isEqualTo("success");
     }
 }

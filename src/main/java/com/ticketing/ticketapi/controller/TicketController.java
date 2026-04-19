@@ -15,7 +15,7 @@ public class TicketController {
 
     @PostMapping
     public ResponseEntity<Ticket> createTicket(@RequestBody Ticket ticket) {
-        ticket.setCreationDate(LocalDate.now());
+        ticket.setCreationDate(LocalDate.now().toString());
         ticket.setStatus("success");
         return ResponseEntity.ok(ticket);
     }
