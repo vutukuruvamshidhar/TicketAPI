@@ -15,6 +15,7 @@ public class TicketController {
 
     @PostMapping
     public ResponseEntity<Ticket> createTicket(@RequestBody Ticket ticket) {
+        System.out.println(" ----------------- Ticket API Invoked ------------");
         ticket.setCreationDate(LocalDate.now().toString());
         ticket.setStatus("success");
         return ResponseEntity.ok(ticket);
